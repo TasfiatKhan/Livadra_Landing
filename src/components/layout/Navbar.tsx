@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/context/ThemeContext'
 import GooglePlayButton from '@/components/ui/GooglePlayButton'
@@ -53,7 +54,7 @@ export default function Navbar() {
       <div className="container-livadra">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {/* Logo */}
-          <a href="#" aria-label="Livadra home" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <Link href="/" aria-label="Livadra home" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{
               width: 34, height: 34,
               background: 'var(--accent)',
@@ -67,14 +68,14 @@ export default function Navbar() {
             <span style={{ fontFamily: 'var(--font-serif)', fontSize: 20, fontWeight: 500, color: 'var(--text)', letterSpacing: '-0.3px' }}>
               Livadra
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav links */}
           <ul style={{ gap: 36, listStyle: 'none', margin: 0, padding: 0 }} className="hidden md:flex">
             {[
-              { label: 'How it works', href: '#how-it-works' },
-              { label: 'Modes', href: '#modes' },
-              { label: 'Stories', href: '#stories' },
+              { label: 'How it works', href: '/#how-it-works' },
+              { label: 'Modes', href: '/#modes' },
+              { label: 'Stories', href: '/#stories' },
             ].map((link) => (
               <li key={link.href}>
                 <a href={link.href} className="nav-link" style={{ fontSize: 14, fontWeight: 400 }}>

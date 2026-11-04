@@ -26,6 +26,7 @@ Next.js (App Router) + TypeScript, Tailwind CSS v3 + CSS custom properties, Fram
 - `src/context/ThemeContext.tsx` + `src/components/Providers.tsx` — dark/light toggle, persisted to `localStorage`
 - `src/app/opengraph-image.tsx` — OG image generated at build time via `next/og` (no static asset to maintain)
 - `src/app/robots.ts`, `src/app/sitemap.ts` — SEO
+- `src/app/privacy-policy/page.tsx`, `src/app/account-deletion/page.tsx` — official public legal pages (linked from the app and Play Console — **don't move these URLs**). Shared shell `src/components/layout/LegalPage.tsx`, styles under `.legal-*` in `globals.css`. Contact emails + paths live in `src/config/links.ts`. Livadra is operated by Zabmation (sole proprietorship, Ontario, Canada); contact addresses are `privacy@` / `support@` / `info@zabmation.com`. Policy text mirrors `Livadra_Privacy_Policy_Updated_Nov_2026.pdf` in the app repo — update both together.
 
 ## Working style
 - Confirm approach before large visual or structural changes.

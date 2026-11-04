@@ -36,9 +36,10 @@ export default function GooglePlayButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${label} — opens Google Play in a new tab`}
-      className={`gp-btn ${isSolid ? 'gp-btn-solid' : 'gp-btn-outline'} ${className ?? ''}`}
+      // display comes from the `inline-flex` class (not inline style) so callers' `hidden` / `md:hidden` can override it
+      className={`gp-btn inline-flex ${isSolid ? 'gp-btn-solid' : 'gp-btn-outline'} ${className ?? ''}`}
       style={{
-        display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: s.gap,
+        alignItems: 'center', justifyContent: 'center', gap: s.gap,
         background: isSolid ? 'var(--accent)' : 'transparent',
         color: isSolid ? '#2A1710' : 'var(--accent)',
         border: isSolid ? 'none' : '1px solid var(--border)',

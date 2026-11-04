@@ -1,11 +1,20 @@
-import { PLAY_STORE_URL } from '@/config/links'
+import {
+  PLAY_STORE_URL, PRIVACY_POLICY_PATH, ACCOUNT_DELETION_PATH,
+  OPERATOR_URL, PRIVACY_EMAIL, SUPPORT_EMAIL, INFO_EMAIL,
+} from '@/config/links'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const productLinks = ['Texting Mode', 'Live Mode', 'Moments', 'Download']
   const companyLinks = ['About', 'Blog', 'Careers', 'Press']
-  const legalLinks = ['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Contact']
+  const legalLinks = [
+    { label: 'Privacy Policy', href: PRIVACY_POLICY_PATH },
+    { label: 'Account Deletion', href: ACCOUNT_DELETION_PATH },
+    { label: 'Privacy requests', href: `mailto:${PRIVACY_EMAIL}` },
+    { label: 'Support', href: `mailto:${SUPPORT_EMAIL}` },
+    { label: 'Contact', href: `mailto:${INFO_EMAIL}` },
+  ]
 
   return (
     <footer role="contentinfo" style={{ padding: '60px 0 40px', borderTop: '1px solid var(--border)' }}>
@@ -39,7 +48,7 @@ export default function Footer() {
               {productLinks.map((label, i) => (
                 <li key={label}>
                   <a
-                    href={i === 3 ? PLAY_STORE_URL : '#modes'}
+                    href={i === 3 ? PLAY_STORE_URL : '/#modes'}
                     target={i === 3 ? '_blank' : undefined}
                     rel={i === 3 ? 'noopener noreferrer' : undefined}
                     className="footer-link"
@@ -66,9 +75,9 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text3)', marginBottom: 16 }}>Legal</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {legalLinks.map((label) => (
+              {legalLinks.map(({ label, href }) => (
                 <li key={label}>
-                  <a href="#" className="footer-link" style={{ fontSize: 14 }}>{label}</a>
+                  <a href={href} className="footer-link" style={{ fontSize: 14 }}>{label}</a>
                 </li>
               ))}
             </ul>
@@ -81,7 +90,11 @@ export default function Footer() {
           flexWrap: 'wrap', gap: 10,
           paddingTop: 24, borderTop: '1px solid var(--border)',
         }}>
-          <p style={{ fontSize: 13, color: 'var(--text3)' }}>© {currentYear} Livadra. All rights reserved.</p>
+          <p style={{ fontSize: 13, color: 'var(--text3)' }}>
+            © {currentYear} Livadra. Operated by{' '}
+            <a href={OPERATOR_URL} className="footer-link" target="_blank" rel="noopener noreferrer">Zabmation</a>
+            , a sole proprietorship based in Ontario, Canada.
+          </p>
           <p style={{ fontSize: 13, color: 'var(--text3)', fontStyle: 'italic' }}>Made for humans who like other humans.</p>
         </div>
       </div>
